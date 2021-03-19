@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+
+</body>
+<script>
+    //传入一个或无参数
+    let add = arg => sum += arg; // add函数
+    let save = (fn) => {
+        sum = 0; // 初始化sum
+        g = arg => arg == null ? sum : fn(arg); // 判断是否传入了参数，如有执行add()，如无返回sum
+        return g;
+    }
+    add = save(add);
+    add(100);
+    add(200);
+    console.log(add()); //300
+
+
+    // // 传入多个参数
+    // let add = (arg) => {
+    //     for (let num of arg)
+    //         sum += num;
+    //     return sum;
+    // };
+    // let save = (fn) => {
+    //     sum = 0;
+    //     g = (...arg) => arg.length == 0 ? sum : fn(arg);
+    //     return g;
+    // }
+    // add = save(add);
+    // add(100, 300);
+    // add(200);
+    // console.log(add()); //600
+
+</script>
+
+</html>
