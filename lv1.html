@@ -10,22 +10,29 @@
 
 <body>
 
-
-
 </body>
 <script>
-    //传入一个或无参数
-    let add = arg => sum += arg; // add函数
+    //我的答案：传入一个或无参数
+    let add = arg => sum = sum + arg; // add函数
     let save = (fn) => {
         sum = 0; // 初始化sum
         g = arg => arg == null ? sum : fn(arg); // 判断是否传入了参数，如有执行add()，如无返回sum
         return g;
     }
+
+    //答案：用了柯里化
+    let add = (a, b) => a + b;
+    let save = (fn) => {
+        let arr = [];
+        return function g(...args) {
+            arr = [...arr, ...args];
+            return args.length == 0 ? arr.reduce(fn) : g();
+        }
+    }
     add = save(add);
     add(100);
     add(200);
     console.log(add()); //300
-
 
     // // 传入多个参数
     // let add = (arg) => {
